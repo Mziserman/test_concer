@@ -2,5 +2,7 @@ module Friendable
   extend ActiveSupport::Concern
   include Duplicable
 
-  DUPLICATED_ASSOCATIONS = const_defined?(:DUPLICATED_ASSOCATIONS) ? DUPLICATED_ASSOCATIONS + [:friends] : [:friends]
+  included do
+    self.add_duplicated_association(:friends)
+  end
 end

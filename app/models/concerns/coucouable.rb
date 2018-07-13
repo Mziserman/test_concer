@@ -2,5 +2,7 @@ module Coucouable
   extend ActiveSupport::Concern
   include Duplicable
 
-  DUPLICATED_ASSOCATIONS = const_defined?(:DUPLICATED_ASSOCATIONS) ? DUPLICATED_ASSOCATIONS + [:coucou] : [:coucou]
+  included do
+    self.add_duplicated_association(:coucou)
+  end
 end
