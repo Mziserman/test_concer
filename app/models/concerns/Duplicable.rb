@@ -1,14 +1,12 @@
-module Friendable
+module Duplicable
   extend ActiveSupport::Concern
-  included do
-
+  module ClassMethods
     def duplicated_associations
       if defined?(super)
-        DUPLICATED_ASSOCATIONS + super
+        self::DUPLICATED_ASSOCATIONS + super
       else
-        DUPLICATED_ASSOCATIONS
+        self::DUPLICATED_ASSOCATIONS
       end
     end
-
   end
 end
